@@ -1,0 +1,57 @@
+{
+	"compilerOptions": {
+		"baseUrl": ".",
+		"target": "es2015",
+		"module": "esnext",
+		"moduleResolution": "node",
+		"strict": true,
+		"jsx": "preserve",
+		"sourceMap": true,
+		"resolveJsonModule": true,
+		"esModuleInterop": true,
+		"noImplicitAny": false,
+		"noUnusedLocals": true,
+		"noUnusedParameters": false,
+		// "strictNullChecks": false,
+		"lib": [
+			"esnext",
+			"es2015",
+			"dom",
+			"ES2020"
+		],
+		"types": [
+			"node",
+			"jest"
+		],
+		"typeRoots": [
+			"./node_modules/@types/",
+			"types"
+		],
+		"experimentalDecorators": true,
+		"useDefineForClassFields": true,
+		"paths": {
+			"@/*": [
+				"src/*"
+			],
+			"#/*": [
+				"src/utils/*"
+			],
+			"~/*": [
+				"types/*"
+			]
+		}
+	},
+	"include": [
+		"src/**/*.ts",
+		"src/**/*.d.ts",
+		"src/**/*.tsx",
+		"src/**/*.vue",
+		"types/**/*.d.ts",
+		"types/**/*.ts",
+	],
+	"exclude": [
+		"node_modules",
+		"dist",
+		"**/*.js"
+	]
+}
