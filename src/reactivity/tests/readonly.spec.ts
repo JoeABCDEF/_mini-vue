@@ -1,7 +1,7 @@
-import { readonly, isReadonly } from '../reactive';
+import { readonly, isReadonly, isProxy } from '../reactive';
 
 describe("readonly", () => {
-    it("init", () => {
+    it("test get set nest isProxy", () => {
         const original = { foo: 1, bar: { baz: 2 } };
         const readonlyInstance = readonly(original);
 
@@ -10,8 +10,10 @@ describe("readonly", () => {
         // 测试 isReadonly
         expect(isReadonly(readonlyInstance)).toBe(true);
         expect(isReadonly(original)).toBe(false);
+        expect(isReadonly(readonlyInstance.bar)).toBe(true);
 
         expect(readonlyInstance.foo).toBe(1);
+        expect(isProxy(readonlyInstance)).toBe(true);
     })
     it("is call ", () => {
         console.warn = jest.fn();

@@ -1,0 +1,9 @@
+{
+    "errorLens.delay": 360,
+    "errorLens.fontSize": "15",
+    "errorLens.gutterIconsEnabled": true,
+    "errorLens.gutterIconSet": "circle",
+    "errorLens.messageMaxChars": 600,
+    "errorLens.onSave": true,
+    "errorLens.onSaveTimeout": 900
+}

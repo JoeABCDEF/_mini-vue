@@ -15,7 +15,7 @@ interface TypeRunner {
     _effect: ReactiveEffect;
 }
 
-class ReactiveEffect {
+export class ReactiveEffect {
     private _fn: any;
 
     // stop 回调
@@ -69,20 +69,33 @@ export function track(target, key) {
         depsMap.set(key, dep);
     }
 
-    if (dep.includes(dep)) return;
+    // if (dep?.includes(dep)) return;
+    trackEffects(dep);
+}
+
+// 
+export function trackEffects(dep) {
+    // 之前是否有添加过
+    if (dep.has(activeEffect)) return;
 
     dep.add(activeEffect);
     activeEffect.deps.push(dep);
 }
 
-function isTracking() {
+// 判断这个是否应该 进行收集依赖
+export function isTracking() {
     return shouldTrack && activeEffect !== undefined;
 }
 
 // 触发响应式
 export function trigger(target, key) {
-    let depsMap = effectMaps.get(target);
-    depsMap.get(key).forEach(activeEffect => activeEffect.scheduler ? activeEffect.scheduler?.() : activeEffect.run?.());
+    let dep = effectMaps.get(target)?.get(key);
+    triggerEffects(dep);
+}
+
+export function triggerEffects(dep) {
+    if (!dep) return;
+    dep.forEach(activeEffect => activeEffect.scheduler ? activeEffect.scheduler?.() : activeEffect.run?.());
 }
 
 // 
