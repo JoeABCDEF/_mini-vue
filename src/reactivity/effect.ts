@@ -102,6 +102,7 @@ export function triggerEffects(dep) {
 export function effect(fn, options: TypeEffectOptions = {}): TypeRunner {
     const _effect = new ReactiveEffect(fn, options.scheduler);
 
+    // 合并对象
     extend(_effect, options)
     // _effect.onStop = options.onStop;
 

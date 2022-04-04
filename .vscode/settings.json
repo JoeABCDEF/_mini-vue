@@ -5,5 +5,11 @@
     "errorLens.gutterIconSet": "circle",
     "errorLens.messageMaxChars": 600,
     "errorLens.onSave": true,
-    "errorLens.onSaveTimeout": 900
+    "errorLens.onSaveTimeout": 900,
+    "cSpell.words": [
+        "cadetblue",
+        "vnode"
+    ],
+    "terminal.integrated.fontSize": 18,
+    "terminal.integrated.fontFamily": "Anonymice Nerd Font Mono"
 }

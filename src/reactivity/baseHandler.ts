@@ -23,7 +23,6 @@ function createGetter(isReadonly = false, isShallow = false) {
                 return isReadonly;
         }
 
-
         let val = Reflect.get(target, key);
 
         if (isShallow) return val;
